@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var loadArea: MogoAPIs.HotBusinessAreaAPI = MogoAPIs.HotBusinessAreaAPI.init()
+        let loadArea: MogoAPIs.HotBusinessAreaAPI = MogoAPIs.HotBusinessAreaAPI()
 //        loadArea.isMock = true
         
         Spore.send(loadArea) { result in

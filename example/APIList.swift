@@ -42,7 +42,7 @@ final class MogoAPIs {
             return "/mogoroom-renter/elastic/getHotBusinessArea"
         }
         
-        func contentParameters() -> [String : Any] {
+        var contentParameters: [String: Any] {
             return [
                 "lat": 31.231771918402778,
                 "lng": 121.4545787217882,

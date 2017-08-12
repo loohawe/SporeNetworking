@@ -12,7 +12,7 @@ import SporeNetworking
 // 实现协议: Request
 
 protocol MogoAPIRequest: Request {
-    func contentParameters() -> [String : Any]
+    var contentParameters: [String : Any] { get }
 }
 
 extension MogoAPIRequest {
@@ -30,8 +30,8 @@ extension MogoAPIRequest {
         ]
     }
     
-    var parameters: [String : Any]? {
-        let content: [String : Any] = contentParameters()
+    var parameters: Any? {
+        let content: [String : Any] = contentParameters
         return [
             "head": [
                 "os": "iOS",
@@ -46,7 +46,7 @@ extension MogoAPIRequest {
             "para": content
         ]
     }
-    
+
     // 返回的数据经过 DataParse 解析之后, 做进一步的处理
     func intercept(object: Any, urlResponse: HTTPURLResponse) throws -> Any {
         guard let json = object as? [String : Any] else {
